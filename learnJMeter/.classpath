@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="lib" path="lib/ApacheJMeter_components.jar" sourcepath="lib/ApacheJMeter_components.jar"/>
+	<classpathentry kind="lib" path="lib/ApacheJMeter_core.jar"/>
+	<classpathentry kind="lib" path="lib/ApacheJMeter_ftp.jar"/>
+	<classpathentry kind="lib" path="lib/ApacheJMeter_functions.jar"/>
+	<classpathentry kind="lib" path="lib/ApacheJMeter_http.jar"/>
+	<classpathentry kind="lib" path="lib/ApacheJMeter_java.jar"/>
+	<classpathentry kind="lib" path="lib/ApacheJMeter_jdbc.jar"/>
+	<classpathentry kind="lib" path="lib/ApacheJMeter_jms.jar"/>
+	<classpathentry kind="lib" path="lib/ApacheJMeter_junit.jar"/>
+	<classpathentry kind="lib" path="lib/ApacheJMeter_ldap.jar"/>
+	<classpathentry kind="lib" path="lib/ApacheJMeter_mail.jar"/>
+	<classpathentry kind="lib" path="lib/ApacheJMeter_mongodb.jar"/>
+	<classpathentry kind="lib" path="lib/ApacheJMeter_monitors.jar"/>
+	<classpathentry kind="lib" path="lib/ApacheJMeter_native.jar"/>
+	<classpathentry kind="lib" path="lib/ApacheJMeter_tcp.jar"/>
+	<classpathentry kind="lib" path="lib/log4j-api-2.6.2.jar"/>
+	<classpathentry kind="lib" path="lib/log4j-core-2.6.2.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

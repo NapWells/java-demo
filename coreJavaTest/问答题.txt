@@ -1,0 +1,117 @@
+1、对于String对象，可以使用"="赋值，也可以使用new关键字赋值，两种方式有什么区别？
+	使用"="赋值的时候,在内存中只创建了一个对象，但使用关键字new，会创建两个对象。
+	
+2、String类和StringBuffer类有什么区别？
+	String类是final类，不能被继承，使用这个类创建的字符串不能被修改。StringBuffer创建的对象可以被修改，修改的时候只是在原对象上进行操作。
+	
+3、for循环中的break语句和continue语句的使用
+	break直接跳出for循环，coutimue跳过当前循环，执行下一次循环
+	
+4、使用代码，创建一个长度为5的String型数组，并使用增强for循环迭代数组，打印数组中的元素。
+	String [] str = new String[]{"Java","Android","C++","C#","Python"};
+	for(String s　：　str)
+		System.out.print(s　+　" ");
+		
+5、Arrays类的作用，并举例。
+	Arrays是个数组的工具类，可以使用Arrays.sort()排序，Arrays.binarySearch()经行查找,
+	Arrays.fill()对数组填充元素,Arrays.asList()可以将一个数组转换成List.
+	
+6、Overload和Override的区别。Overload的方法是否可以改变返回值的类型？
+	Overload是重载，主要用于同一个类中，方法名字都相同，但是参数个数不同，或者参数类型不同。
+	Override是重写，主要 用于子类中，子类中的某方法和父类的方法名字一样，参数一样，返回值类型一样，但是方法的 内容不一样。
+	Overload不能通过改变返回类型来确定。
+	
+7、定义类A和类B如下
+  class A{
+  	int a = 11;
+  	double d = 2.0;
+  	void display(){
+  		System.out.println("class A: a = " + a +"\td = " +d);
+  		}
+  }
+  class B extends  A{
+  	float a = 3.0f;
+  	String d = "Java program";
+  	void  display(){
+  		super.displau();
+  		System.out.println("class B: a = " + a +"\td = " +d);
+  		}
+  }
+  (1)若在应用程序的main方法中有以下语句：
+  	A  a = new A();
+  	a.dispay();
+  	则输出结果如何？
+  	输出：class A ： a = 11    d = 2.0;
+  (2)若在应用程序的main方法中定义类B的对象b：
+  	A b = new B();
+  	b.display();则输出结果如何？
+  	输出：class A ： a = 11    d = 2.0;
+  		class B ： a = 3.0   d = Java program;
+  
+ 8、说明是什么是抽象类？抽象类有什么作用？
+ 	抽象类是用abstarct关键字定义		
+ 	做用：可以把不同对象的共同点 抽象出来，减少代码的 重写，同时可以很好的隐藏数据
+ 
+ 9、fianl类与final方法有什么作用？
+ 	final类不能被继承，防止通过继承对类属性的改变。
+ 	final方法防止方法被重写
+ 
+ 10、Object类中的equals方法和hashCode方法。
+ 	equals方法的内部是通过获取两个对象的hashCode方法比较它们是否相等。Object的hashCode方法就是获取对象的内存地址。
+ 	当我们自定义对象的时候，可以重写这两个方法，必须同时重写。
+ 
+ 11、throws关键字和throw关键字有什么区别联系？
+ 	throws关键字用于类或方法的末尾，后面可以跟多个异常，所以能同时抛出多个异常，throw关键字用于方法内部，只能抛出一个异常。
+ 	
+ 12、List和Set的区别？
+ 	List是个有序集合，List会将元素按放入的顺序存放，而Set是个无序集合，每次放入的元素，会随机的方法Set集合中的某个位置。
+ 	
+ 13、Collection和Collections有什么区别？
+ 	Collection是接口,而Collections是个工具类，可以对实现了Collection接口的集合进行操作。
+ 	
+ 14、java中多态是 什么？
+ 	多态就是同一个行为有不同的表现 状态，继承，重写，重载，接口，动态绑定，向下转型都是java多态的表现。
+ 
+ 15、请列举java语言中的八大基本数据类型，并说明每种数据 类型的含义及长度？
+ 	byte(-2^7 ~ 2^7-1),byte的数据类型是8位
+ 	short(-2^15 ~ 2^15-1),byte的数据类型是16位
+ 	int(-2^31 ~ 2^31-1),int的数据类型是32位
+ 	long(-2^63 ~ 2^63-1),long的数据类型是64位
+ 	float数据类型是单精度，32位
+ 	double数据类型是双精度，64位
+ 	boolean类型的 值只有true和false
+ 	char类型是一个单一的16位unicode字符
+ 
+ 16、面向对象的特征有哪些方面？并解释特征。
+ 	1、封装：将数据何类包装起来，防止数据丢失，泄露。
+ 	2、继承：通过关键字extend实现继承，子类拥有父类的特征，子类可以有自己独立的方法，也可以重写父类的方法。
+ 	3、多态：同一种行为有不同的表现，通过重写，重载等
+ 	4、抽象：把不同对象的相同行为特征抽象出来
+ 
+ 17、作用域publi,private,protected,以及不写时的区别?
+ 	public:当前类和所有本类的 实例。
+ 	private：只有当前类可以访问。
+ 	protected：当前 类或该类的 实例或 其子类及 子类的实例。
+ 	default:当前类和当前类的实例和其子类。
+ 
+ 18、写一个程序，要求功能：求出1，2，5这三个数字的不同组合的和为100的组合个数。如：100个1是一个组合，5个1加上19个5是一个组合。。。请用java语言写。
+ 	public static int sumCombination(int n){
+		int count = 0;
+		for(int i = 0 ;i<=n/1;i++){
+			for(int j = 0;j <= n/2;j++){
+				for(int k = 0; k<=n/5; k++){
+					if((i+2*j+5*k)==n)
+						count ++;
+				}
+			}
+		}
+		return count;
+	}
+ 
+ 19、说明try/catch/finally语句块的作用
+ 	try块下的代码可能会发生异常，它必须对应catch块，catch用于捕获异常，
+ 	fianlly块下的代码不管有没有捕获到一场都会执行，一般用于释放资源，关闭连接。
+ 
+ 20、返回值是多少？"beijing".equalsIgnoreCase(new String("beijing"))
+ 	true
+ 	

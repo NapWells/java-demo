@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop.xsd">
+		
+	<!-- 定义被增强的类 -->	
+	<bean id="productDao" class="com.liu.springAspectJ2.ProductDao"/>
+	
+	<!-- 定义切面 -->
+	<bean id="myAspectXml" class="com.liu.springAspectJ2.MyAspectXml"></bean>
+
+	<!-- 定义AOP配置 -->
+	<aop:config>
+		<!-- 定义切点： -->
+		<aop:pointcut expression="execution(* com.liu.springAspectJ2.ProductDao.add(..))" id="myPointcut"/>
+		<aop:pointcut expression="execution(* com.liu.springAspectJ2.ProductDao.delete(..))" id="myPointcut2"/>
+		<aop:pointcut expression="execution(* com.liu.springAspectJ2.ProductDao.update(..))" id="myPointcut3"/>
+		<aop:pointcut expression="execution(* com.liu.springAspectJ2.ProductDao.search(..))" id="myPointcut4"/>
+		<aop:aspect ref="myAspectXml">
+			<!-- 前置增强 -->
+			<aop:before method="before" pointcut-ref="myPointcut"/>
+			
+			<!-- 后置增强 -->
+			<aop:after-returning method="afterReturning" pointcut-ref="myPointcut" returning="returnVal"/>
+			
+			<!-- 环绕增强 -->
+			<aop:around method="around" pointcut-ref="myPointcut2" />
+			
+			<!-- 异常通知 -->
+			<aop:after-throwing method="afterThrowing" pointcut-ref="myPointcut3" throwing="e"/>
+			
+			<!-- 最终通知 -->
+			<aop:after method="after" pointcut-ref="myPointcut4"/>
+		</aop:aspect>
+	</aop:config>
+
+</beans>

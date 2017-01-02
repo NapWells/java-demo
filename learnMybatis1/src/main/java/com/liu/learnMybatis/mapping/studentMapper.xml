@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+<!DOCTYPE mapper    
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.liu.learnMybatis.mapping.studentMapper">
+	<resultMap id="studentResultMap" type="com.liu.learnMybatis.pojo.Student">
+		<result column="id" property="id" jdbcType="INTEGER" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="gender" property="gender" jdbcType="VARCHAR" />
+		<result column="age" property="age" jdbcType="INTEGER" />
+		<result column="class_id" property="classId" jdbcType="INTEGER" />
+		<association column="class_id" property="clazz" javaType="Clazz" select="selectClazzById"/>
+	</resultMap>
+	
+	<select id="getStudentById" parameterType="int" resultMap="studentResultMap">
+		select * from `student` where `id` = #{id}
+	</select>
+	
+	<select id="selectClazzById" parameterType="int" resultType="Clazz">
+		select * from `class` where `id` = #{id}
+	</select>
+	
+	
+	<!-- 	动态SQL -->
+	<select id="getStudentNameLike" resultMap="studentResultMap">
+		select * from student
+		<if test="name !=null and name != ''">
+			where name like #{name}
+		</if>
+	</select>
+	
+	<select id="getStudentByConditions" resultMap="studentResultMap">
+		select * from student
+		<choose>
+			<when test="id != 0">
+				wher id = #{id}
+			</when>
+			<when test="name != null">
+				where name like #{name}
+			</when>
+			<when  test="classId != 0">
+				where class_id = #{classId}
+			</when>
+			<otherwise>
+				where 1 = 1
+			</otherwise>
+		</choose>
+	</select>
+	
+	<parameterMap type = "map" id = "testParameterMap">
+		<parameter property = "addend1" jdbcType="INTEGER" mode="IN"/>
+		<parameter property = "addend2" jdbcType="INTEGER" mode="IN"/>
+		<parameter property = "thesum" jdbcType="INTEGER" mode="OUT"/>
+	</parameterMap>
+	
+	<update id = "callSPtest"  parameterMap = "testParameterMap" statementType="CALLABLE">
+		{call sptestadder(?,?,?)}
+	</update>
+</mapper>

@@ -1,0 +1,26 @@
+@CHARSET "UTF-8";
+#colleft{
+  		border-right: 1px solid ;
+  		box-shadow:0px 0px 4px #f00;
+  	}
+  
+   #list1 li{
+   		text-align:center
+   	}
+   	.mycenter,.mycenter ul,.yigoumai {
+   		font-family: "楷体";
+   		font-size:x-large;
+   	}
+   .mycenter ul{
+   		font-size: 16px;
+   		font-family: "幼圆";
+
+   	}
+
+	#usermsg{
+		text-align:center
+	}
+
+	.mydetail{
+		margin-left: 24px;
+	}

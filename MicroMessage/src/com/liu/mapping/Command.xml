@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="Command">
+ 	<resultMap type="com.liu.beans.Command" id="CommandResult">
+ 		<id property="id" column="id" jdbcType="INTEGER"/>
+ 		<result property="name" column="name" jdbcType="VARCHAR"/>
+ 		<result property="description" column="description" jdbcType="VARCHAR"/>
+ 		<collection property="contentList" resultMap="CommandContent.CommandContentResult"/>
+ 	</resultMap>
+ 	
+ 	<select id="queryCommandList"  parameterType="com.liu.beans.Command" resultMap="CommandResult">
+    SELECT * FROM message WHERE 1 = 1
+    <if test="command!=null and !&quot;&quot;.equals(command.trim())">
+    	and command = #{command}
+    </if>
+     <if test="description!=null and !&quot;&quot;.equals(description.trim())">
+    	and description like '%' #{description} '%'
+    </if>
+  </select>
+ </mapper>

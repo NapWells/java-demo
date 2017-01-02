@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.liu.hibernate.beans.Student" table = "student">
+		<id name="id" column="id">
+			<generator class="assigned"/>
+		</id>
+		
+		<property name="sid" column="sid"/>
+		<property name="firstname" column="firstname"/>
+		<property name="lastname" column="lastname"/>
+		<property name="gender" column="gender"/>
+		<property name="phone" column="phone"/>
+		<property name="email" column="email"/>
+		<property name="dateOfBirth" column="date_of_birth"/>
+		
+		<one-to-one name="login" class="com.liu.hibernate.beans.StudentLogin" cascade="all"></one-to-one>
+		
+		<many-to-one name="student" column="student_status_id" 
+			class="com.liu.hibernate.beans.StudentStatus">
+		</many-to-one>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>register.html</title>
+<style type="text/css"> 
+	div#div1{ 
+		position:fixed; 	
+		top:0; 
+		left:0; 
+		bottom:0; 
+		right:0; 
+		z-index:-1; 
+		} 
+	div#div1 > img { 
+		height:100%; 
+		width:100%; 
+		border:0; 
+		} 
+	form {color:black}
+	table {
+		margin-left:auto;
+		margin-right:auto;
+		border-spacing:20px;
+		}
+
+	.a {text-align:right;}
+	.sex，.hobby{background:none}
+	textarea{
+		background-color:transparent;
+		}
+</style>
+<script type="text/javascript" src="checkform.js"></script>
+</head>
+<body>
+<div id="div1"><img src="image/backpic.jpg"/></div> 
+<h1 style="color:blue;text-align:center">用户注册</h1>
+<hr>
+
+<form method="post" onsubmit="return checkForm()" action="infoServlet" >
+<table>
+<tr><td class="a">用户名:</td><td><input type="text" name="username" id="username" onkeyup="value=value.replace(/[\W]/g,'')"
+		onblur="checkUsername('username')"></td></tr>
+<tr><td class="a">密码:</td><td><input type="password" name="passwd" id="password"></td></tr>
+<tr><td class="a">重复密码:</td><td><input type="password" name="passwd" id="repassword" onblur="checkPassword()"></td></tr>
+<tr><td class="a">性别:</td><td><input class="sex" type="radio" name="sex" value="男" id="male">男
+	<input class="sex" type="radio" name="sex" value="女" id="female">女</td></tr>
+<tr><td class="a">年龄:</td><td><input type="number" name="age" id="age" onkeyup="value=value.replace(/[^\d]/g,'')"></td></tr>
+<tr><td class="a">学历:</td><td><select name="degree">
+	<option value="" id="degree">--请选择--</option>
+	<option value="专科" id="zhuanke">专科</option>
+	<option value="本科" id="benke">本科</option>
+	<option value="硕士" id="shuoshi">硕士</option>
+	<option value="博士及以上" id="boshi">博士及以上</option> 	
+	</select></td></tr>
+<tr><td class="a">兴趣爱好:</td><td><input class="hobby" type="checkbox" name="hobby" value="睡觉" id="sleep">睡觉
+	<input class="hobby" type="checkbox" name="hobby" value="逃课" id="taoke">逃课
+	<input class="hobby" type="checkbox" name="hobby" value="打游戏" id="game">打游戏
+	<input class="hobby" type="checkbox" name="hobby" value="吃饭" id="eat">吃饭</td></tr>
+<tr><td class="a">自我介绍:</td><td><textarea name="instruction" rows="5" cols="30" >自我介绍:</textarea></td></tr>
+<tr><td colspan="2" ALIGN="center"><input type="submit" value="提交">
+		<input type="reset" value="重置"></td></tr>
+</table>
+</form>
+
+</body>
+</html>

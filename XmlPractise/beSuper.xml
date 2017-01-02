@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<BeSuper>
+	<user>
+		<name>刘浩宇</name>
+		<score>0</score>
+	</user>
+	<questions>
+		<question>
+			<user>
+				<name>刘浩宇</name>
+				<score>0</score>
+			</user>
+			<id>0</id>
+			<question>how are you?</question>
+			<isSolved>false</isSolved>
+		</question>
+		<question>
+			<user>
+				<name>刘浩宇</name>
+				<score>0</score>
+			</user>
+			<id>1</id>
+			<question>how are you today?</question>
+			<isSolved>false</isSolved>
+		</question>
+	</questions>
+	<answers>
+		<answer>
+			<question>
+				<user>
+					<name>刘浩宇</name>
+					<score>0</score>
+				</user>
+				<id>0</id>
+				<question>how are you?</question>
+				<isSolved>false</isSolved>
+			</question>
+			<answer>I'm fine,thank you!</answer>
+			<user>
+				<name>刘浩宇</name>
+				<score>0</score>
+			</user>
+		</answer>
+		<answer>
+			<question>
+				<user>
+					<name>刘浩宇</name>
+					<score>0</score>
+				</user>
+				<id>1</id>
+				<question>how are you today?</question>
+				<isSolved>false</isSolved>
+			</question>
+			<answer>I'm fine,thank you!</answer>
+			<user>
+				<name>刘浩宇</name>
+				<score>0</score>
+			</user>
+		</answer>
+	</answers>
+</BeSuper>

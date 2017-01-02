@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<student id="123">
+	<name>Jaxb</name>
+	<gender>M</gender>
+	<age>M</age>
+</student>

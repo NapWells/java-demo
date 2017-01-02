@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+<!DOCTYPE mapper    
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+ <mapper namespace="SubTagMapper">
+	<resultMap type="SubTag" id="SubTagResult">
+		<id property="id" column="id" jdbcType="INTEGER"/>
+		<result property="name" column="name" jdbcType="VARCHAR"/>
+		<result property="rank" column="rank" jdbcType="INTEGER"/>
+		<result property="tagId" column="tag_id" jdbcType="INTEGER"/>
+		<association property="tag" column="tag_id" javaType="Tag" select="selectTagById"/>
+		<collection property="products" javaType="ArrayList" column="id" ofType="Product" select="selectProductOfSubTag"/>
+	</resultMap>
+	<select id="selectSubTagById" parameterType="int"  resultMap="SubTagResult">
+		select * from sub_tag where id =  #{id}
+	</select>
+	<select id="selectTagById" parameterType="int" resultType="Tag">
+		select * from tag where id = #{tag_id}
+	</select>
+	<select id="selectProductOfSubTag" parameterType="int" resultType="Product">
+		select * from product where sub_tag_id = #{id}
+	</select>
+</mapper>

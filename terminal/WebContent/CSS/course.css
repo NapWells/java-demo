@@ -1,0 +1,56 @@
+@CHARSET "UTF-8";
+body{
+	margin-top: 10px;
+}
+#price{
+	display: inline-block;
+	text-align: center;
+	padding: 10px 0;
+	width: 250px;
+	background-color: #fbb81e;
+}
+
+#info li{
+	padding:7px 0px;
+}
+.authorinfo{
+	border: solid 1px;
+}
+
+.content{
+	margin-left:30px; 
+}
+
+.form{
+	margin-top: 20px;
+}
+#user{
+	color:#fab81e;
+}
+
+#time{
+	padding-left:50px;
+	color:#EE82EE;
+}
+
+#content{
+	padding-top:20px;
+}
+video{
+	margin-left: -35px;
+	margin-bottom: 40px;
+}
+
+.charpercourse{
+	height: 380px;
+	overflow: scroll;
+	overflow-x:hidden;
+}
+
+#allcourse{
+	background:#FFFFFF;
+	border:0px solid;
+}
+#follow,#guanzhu1{
+	cursor:pointer;
+}

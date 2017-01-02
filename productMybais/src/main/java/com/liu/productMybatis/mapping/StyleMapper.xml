@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+<!DOCTYPE mapper    
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="StyleMapper">
+	<resultMap type="Style" id="StyleResult">
+		<id property="id" column="id" jdbcType="INTEGER"/>
+		<result property="name" column="name" jdbcType="VARCHAR"/>
+		<result property="note" column="note" jdbcType="VARCHAR"/>
+		<collection property="productStyles" javaType="ArrayList" column="id" ofType="ProductStyle" select="selectProductStyleOfStyle"/>
+	</resultMap>
+	
+	<select id="selectStyleById" parameterType="int" resultMap="StyleResult">
+		select * from style where id = #{id}
+	</select>
+	<select id="selectProductStyleOfStyle" parameterType="int" resultType="ProductStyle">
+		select * from product_style where style_id = #{id}
+	</select>
+</mapper>

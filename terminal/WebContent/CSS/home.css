@@ -1,0 +1,36 @@
+@CHARSET "UTF-8";
+div.imge
+  {
+  margin:3px;
+  border:1px solid #bebebe;
+  height:auto;
+  width:auto;
+  float:left;
+  text-align:center;
+  }
+div.imge img
+  {
+  display:inline;
+  margin:3px;
+  border:1px solid #bebebe;
+  }
+div.imge a:hover img
+  {
+  border:1px solid #333333;
+  }
+div.desc
+  {
+  text-align:center;
+  font-weight:normal;
+  width:150px;
+  font-size:12px;
+  margin:10px 5px 10px 5px;
+  }
+  
+  .table{
+  	border:0px solid red;
+  }
+  #homepage{
+  background:#FFFFFF;
+  border:0px solid;
+  }

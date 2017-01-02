@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+<!DOCTYPE mapper    
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ProductStyleMapper">
+	<resultMap type="ProductStyle" id="ProductStyleResult">
+		<result property="styleId" column="style_id" jdbcType="INTEGER"/>
+		<result property="productId" column="product_id" jdbcType="INTEGER"/>
+		<association property="style" column="style_id" javaType="Style" select="selectStyleOfProductStyle"></association>
+		<association property="product" column="product_id" javaType="Product" select="selectProductOfProductStyle"></association>
+	</resultMap>
+	
+	<select id="selectProductStyleOfStyleIdAndProductId" parameterType="ProductStyle" resultMap="ProductStyleResult">
+		select * from product_style where style_id = #{styleId} and product_id = #{productId}
+	</select>
+	<select id="selectStyleOfProductStyle" parameterType="int" resultType="Style">
+		select * from style where id = #{styleId}
+	</select>
+	
+	<select id="selectBrandOfProductProduct" parameterType="int" resultType="Product">
+		select * from product where id = #{productId}
+	</select>
+	
+</mapper>

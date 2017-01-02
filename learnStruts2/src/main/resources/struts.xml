@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+
+<struts>
+	<constant name="struts.custom.i18n.resources" value="mess" />
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.devMode" value="false" />
+	 <constant name="struts.strictMethodInvocation.methodRegex" value="([a-zA-Z]*)"/>
+	<!-- 所有的Action定义都应该放在package下 -->
+	<package name="default" namespace="/" extends="struts-default">
+		<action name="login" class="com.liu.actions.LoginAction">
+			<!-- 定义三个逻辑视图和物理资源之间的映射 -->
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<result name="success">/WEB-INF/content/welcome.jsp</result>
+		</action>
+		<action name="*">
+			<result>/WEB-INF/content/loginForm.jsp</result>
+		</action>
+	</package>
+</struts>

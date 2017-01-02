@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+	
+<hibernate-configuration>
+
+	<session-factory>
+	
+		<!-- 配置打印SQL语句 -->
+		<property name = "show_sql">true</property>
+		<!-- 设置格式化后的SQL语句 -->
+		<property name = "format_sql">true</property>
+		
+		<!-- 设置开启二级缓存 -->
+<!-- 		<property name = "hibernate.cache.use_second_level_cache">true</property> -->
+		<!-- 设置二级缓存插件EHCache的Provider类 -->
+<!-- 		<property name="hibernate.cache.region.factory_class">org.hibernate.cache.EhCacheRegionFactory</property> -->
+		<!-- 启动"查询缓存 -->
+<!-- 		<property name="hibernate.cache.use_query_cache">true</property> -->
+		
+		<!-- 配置JDBC Driver-->
+		<property name = "connection.driver_class">com.mysql.jdbc.Driver</property>
+		<!-- 配置数据库连接URL-->
+		<property name = "connection.url">jdbc:mysql://localhost:3306/qingke?useSSL=false</property>
+		<!-- 配置数据库用户名-->
+		<property name = "connection.username">qingke</property>
+		<!-- 配置数据库用户密码-->
+		<property name = "connection.password">000000</property>
+		<!-- 配置hibernate使用的数据库方言-->
+		<property name = "dialect">org.hibernate.dialect.MySQLDialect</property>
+		
+		<mapping class="com.liu.hibernate.beans.Student"/>
+		<mapping class="com.liu.hibernate.beans.StudentLogin"/>
+		<mapping class="com.liu.hibernate.beans.StudentStatus"/>
+		<mapping class="com.liu.hibernate.beans.Teacher"/>
+		<mapping class="com.liu.hibernate.beans.TeacherHasStudent"/>
+		<mapping class="com.liu.hibernate.beans.Apartment"/>
+		<mapping class="com.liu.hibernate.beans.Accommodation"/>
+		
+<!-- 		<mapping class="com.liu.hibernate.beans.AcademyYear"/> -->
+
+<!-- 		<mapping class="com.liu.hibernate.beans.College"/> -->
+<!-- 		<mapping class="com.liu.hibernate.beans.Course"/> -->
+<!-- 		<mapping class="com.liu.hibernate.beans.CourseImpl"/> -->
+<!-- 		<mapping class="com.liu.hibernate.beans.CourseTemplate"/> -->
+<!-- 		<mapping class="com.liu.hibernate.beans.CourseTemplateType"/> -->
+<!-- 		<mapping class="com.liu.hibernate.beans.Enrollment"/> -->
+<!-- 		<mapping class="com.liu.hibernate.beans.Lecturer"/> -->
+<!-- 		<mapping class="com.liu.hibernate.beans.Major"/> -->
+<!-- 		<mapping class="com.liu.hibernate.beans.Registeration"/> -->
+<!-- 		<mapping class="com.liu.hibernate.beans.Evaluation"/> -->
+		
+		
+		
+		
+		
+	</session-factory>
+</hibernate-configuration>

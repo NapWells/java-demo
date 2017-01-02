@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	 xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop.xsd
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx.xsd
+	http://www.springframework.org/schema/mvc  
+	http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+	<!-- 配置Handler
+	由于使用了BeanNameUrlHandlerMapping处理映射器，name配置为url  -->
+	<bean id="itemController1" name="/itemsList.action" class="controller.ItemController1"/>
+	
+	<!-- handler2 -->
+	<bean id="itemController2"  class="controller.ItemController2"/>
+	
+	<!-- 配置处理器映射器,
+	springMVC框架 根据HandlerMapping接口判断是否是处理映射器-->
+	<bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
+	
+	<!-- 注解处理器映射器 -->
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"></bean>
+	
+	<!-- 注解Handler -->
+<!-- 	<bean class="controller.ItemController3"/> -->
+	<context:component-scan base-package="controller"></context:component-scan>
+	
+	<!-- 注解处理适配器 -->
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>
+	
+	<!-- 简单的Url处理器映射器映射 -->
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="/itemTest1.action">itemController1</prop>
+				<prop key="/itemTest2.action">itemController1</prop>
+				<prop key="/itemTest3.action">itemController2</prop>
+			</props>
+		</property>
+	</bean>
+	
+	
+	<!-- 处理器适配器
+	springMVC更具HandlerAdapter接口判断是否为处理器适配器-->
+	<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
+	
+	<!-- 另一个适配器HttpRequestHandlerAdapter -->
+	<bean class="org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter">
+	</bean>
+	
+	<!-- 配置视图解析器 -->
+	<!-- ViewResolver -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+<!-- 		<property name="viewClass" value="org.springframework.web.setvlet.view.JstlView"/> -->
+<!-- 		<property name="prefix" value="/WEB-INF/jsp"/> -->
+<!-- 		<property name="suffix" value=".jsp"/> -->
+	</bean>
+</beans>

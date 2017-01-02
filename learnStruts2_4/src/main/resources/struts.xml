@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+
+<struts>
+	<constant name="struts.custom.i18n.resources" value="mess" />
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.configuration.xml.reload" value="true"/>
+	<package name="exception" namespace="/" extends="struts-default">
+		<global-results>
+			<result name="sql">/WEB-INF/exception/exception.jsp</result>
+			<result name="root">/WEB-INF/exception/exception.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<!-- 当action中遇到SQLException异常时，系统将转入name为sql的结果中 -->
+			<exception-mapping exception="java.lang.SQLException"
+				result="sql" />
+				
+			<!-- 当action中遇到Exception异常时，系统将转入name为root的结果中 -->
+			<exception-mapping exception="java.lang.Exception"
+				result="root" />
+				 
+		</global-exception-mappings>
+		<action name="login" class="com.liu.exception.action.LoginAction">
+			<!-- 定义局部异常映射，当Action中遇到MyException异常时，系统将转入name为my的映射结果中 -->
+			<exception-mapping exception="com.liu.exception.exception.MyException"
+				result="my" />
+			<result name="my">/WEB-INF/exception/exception.jsp</result>
+			<result name="error">/WEB-INF/exception/error.jsp</result>
+			<result name="success">/WEB-INF/exception/welcome.jsp</result>
+		</action>
+		<action name="*">
+			<result>/WEB-INF/exception/{1}.jsp</result>
+		</action>
+	</package>
+</struts>

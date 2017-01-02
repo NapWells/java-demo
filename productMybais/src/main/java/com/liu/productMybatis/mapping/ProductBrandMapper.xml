@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+<!DOCTYPE mapper    
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ProductBrandMapper">
+	<resultMap type="ProductBrand" id="ProductBrandResult">
+		<result property="brandId" column="brand_id" jdbcType="INTEGER"/>
+		<result property="productId" column="product_id" jdbcType="INTEGER"/>
+		<association property="brand" column="brand_id" javaType="Brand" select="selectBrandOfProductBrand"></association>
+		<association property="product" column="product_id" javaType="Product" select="selectProductOfProductBrand"></association>
+	</resultMap>
+	
+	<select id="selectProductBrandByBrandIdAndProductId" parameterType="ProductBrand" resultMap="ProductBrandResult">
+		select * from product_brand where brand_id = #{brandId} and product_id = #{productId}
+	</select>
+	<select id="selectBrandOfProductBrand" parameterType="int" resultType="Brand">
+		select * from brand where id = #{brandId}
+	</select>
+	
+	<select id="selectProductOfProductBrand" parameterType="int" resultType="Product">
+		select * from product where id = #{productId}
+	</select>
+	
+</mapper>

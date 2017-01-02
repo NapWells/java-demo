@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+     http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+	<bean id="city" class="com.liu.beans2.City" >
+		<property name="name" value="杭州"/>
+	</bean>
+
+	<bean id="country" class="com.liu.beans2.Country">
+		<property name="name" value="中国"/>
+		<property name="city" ref="city"/>
+	</bean>
+</beans>

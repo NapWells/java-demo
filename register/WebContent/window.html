@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+   a{
+   	text-decoration:underline;
+   	color:blue;
+   	};
+</style>
+<script language="javascript">
+	var newwin;
+	function opennewwin(){
+		newwin=open("register.html");
+	}
+	function closenewwin(){
+		newwin.close();
+	}
+	function loc(){
+		window.location.href="register.html";
+	}
+	var c=0;
+	var t;
+	function timedCount(){
+		document.getElementById('txt').value=c;
+		c=c+1;
+		t=setTimeout("timedCount()",1000);
+	}
+	function stopCount(){
+		c=0;
+		setTimeout("document.getElementById('txt').value=0",0);
+		clearTimeout(t);
+	}
+</script>
+</head>
+<body>
+<a href="javascript:opennewwin()">打开新窗口</a><br><br>
+<a href="javascript:closenewwin()">关闭新窗口</a><br><br>
+<a href="javascript:close()">关闭本窗口</a><br><br>
+<input type="button" onclick="loc()" value="跳转到注册页面"><br><br>
+<form>
+<input type="button" value="开始计时！ " onClick="timedCount()">
+<input type="text" id="txt">
+<input type="button" value="停止计时！ " onClick="stopCount()">
+</form>
+</body>
+</html>

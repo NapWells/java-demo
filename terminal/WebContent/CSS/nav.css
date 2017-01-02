@@ -1,0 +1,41 @@
+@CHARSET "UTF-8";
+
+#mycenter{
+	margin-top:15px;
+	color:#ffffff;
+}
+.navbar{
+	background:black;
+	border:0px solid;
+	font-size:16px;
+	font-weight:bold;
+}
+#span1{
+	padding-left:20px;
+	display:none;
+	color:red;
+	font-size:6px;
+}
+#span2{
+	padding-left:20px;
+	display:none;
+	color:red;
+	font-size:6px;
+}
+#span3{
+	padding-left:20px;
+	display:none;
+	color:red;
+	font-size:6px;
+}
+#span4{
+	padding-left:20px;
+	display:none;
+	color:red;
+	font-size:6px;
+}
+#failLogin{
+	font-weight:bold;
+	color:red;
+	height:10px;
+}

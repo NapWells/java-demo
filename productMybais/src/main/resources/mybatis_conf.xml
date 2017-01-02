@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+		"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias alias="Brand" type="com.liu.productMybatis.beans.Brand"/>
+		<typeAlias alias="Product" type="com.liu.productMybatis.beans.Product"/>
+		<typeAlias alias="ProductBrand" type="com.liu.productMybatis.beans.ProductBrand"/>
+		<typeAlias alias="ProductStyle" type="com.liu.productMybatis.beans.ProductStyle"/>
+		<typeAlias alias="Style" type="com.liu.productMybatis.beans.Style"/>
+		<typeAlias alias="SubTag" type="com.liu.productMybatis.beans.SubTag"/>
+		<typeAlias alias="Tag" type="com.liu.productMybatis.beans.Tag"/>
+	</typeAliases>
+	
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<!-- 配置数据库连接信息 -->
+			<dataSource type="POOLED">
+				<property name="driver" value="com.mysql.jdbc.Driver" />
+				<property name="url" value="jdbc:mysql://localhost:3306/simple_shop?useSSL=false" />
+				<property name="username" value="qingke" />
+				<property name="password" value="000000" />
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<mappers>
+		<mapper resource="com/liu/productMybatis/mapping/BrandMapper.xml"/>
+		<mapper resource="com/liu/productMybatis/mapping/ProductMapper.xml"/>
+		<mapper resource="com/liu/productMybatis/mapping/ProductBrandMapper.xml"/>
+		<mapper resource="com/liu/productMybatis/mapping/ProductStyleMapper.xml"/>
+		<mapper resource="com/liu/productMybatis/mapping/StyleMapper.xml"/>
+		<mapper resource="com/liu/productMybatis/mapping/SubTagMapper.xml"/>
+		<mapper resource="com/liu/productMybatis/mapping/TagMapper.xml"/>
+		
+	</mappers>
+</configuration>
